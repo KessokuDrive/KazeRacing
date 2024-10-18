@@ -1,0 +1,18 @@
+.ipynb*
+
+/test_images/
+*.p
+/__pycache__/
+Image_Gen.ipynb
+/test_images_viv/
+tracker.py
+Untitled.ipynb
+project_video_output*
+Untitled1.ipynb
+/data/
+*.mp4
+/results/
+.idea*
+Untitled Folder/
+filtering/
+/old_code/
