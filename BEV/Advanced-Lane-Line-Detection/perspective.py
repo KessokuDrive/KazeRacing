@@ -1,7 +1,7 @@
 #This cod gets perspective transform of a image using 
 #predefined parameters.
 
-IMG_PATH = "E:\KazeRacing\BEV\Advanced-Lane-Line-Detection\\test_images\\f1_large_0948.png"
+IMG_PATH = "E:\KazeRacing\BEV\Advanced-Lane-Line-Detection\\test_images\\Standard.png"
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import matplotlib.gridspec as gridspec
@@ -107,6 +107,7 @@ src_pts = np.float32([[p1[0][0],p1[1][0]],
                       [p2[0][0],p2[1][0]],
                       [p3[0][0],p3[1]],
                       [p4[0][0],p4[1]]])
+
 
 # H is the homography matrix
 M_inv = cv2.getPerspectiveTransform(dst_pts, src_pts)
