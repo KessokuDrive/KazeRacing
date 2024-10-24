@@ -49,16 +49,20 @@ def train_eval(dataloader,model,is_training):
     model = model.eval()
     torch.save(model.state_dict(), f"model_{epoch}.pth")
 
+#Set batch size, larger batch sizes will be train faster and stabilize learning
 batch_size = 64
+
+#Load datasets and create dataloaders
 train_datasets = XYDataset("datasets/train.txt", TRANSFORMS, random_hflip=True)
 valid_datasets = XYDataset("datasets/valid.txt", TRANSFORMS, random_hflip=True)
 train_dataloader = DataLoader(train_datasets, batch_size, shuffle=True)
 test_dataloader = DataLoader(valid_datasets, batch_size, shuffle=True)
-
+#Load model and optimizer
 model = torchvision.models.wide_resnet101_2(pretrained=True).to(device)
 model.fc = torch.nn.Linear(2048, 2).to(device)
 optimizer = torch.optim.Adam(model.parameters(), lr=5e-5)
-epoch = 10
+#set number of epochs
+epoch = 200
 
 for t in range(epoch):
     print(f"Epoch {t+1}\n-------------------------------")
